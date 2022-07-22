@@ -1,0 +1,80 @@
+plugins {
+    id 'java'
+    id "io.qameta.allure" version "2.10.0"
+}
+
+group 'com.aero.test'
+version '1.0'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+    flatDir {
+        dirs "libs"
+    }
+}
+
+// dependency versions
+def lombokVersion = "1.18.24"
+def testNGVersion = "7.6.1"
+def allureVersion = "2.20.1"
+def allurePluginVersion = "2.9.4"
+def logVersion = "2.14.1"
+def retrofitVersion = "2.9.0"
+def selenideAppiumVersion = "2.5.2"
+def javafakerVersion = "1.0.2"
+
+dependencies {
+    testImplementation "com.codeborne:selenide-appium:$selenideAppiumVersion"
+    testImplementation "io.qameta.allure:allure-java-commons:$allureVersion"
+    testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
+    testImplementation "io.qameta.allure:allure-testng:$allureVersion"
+    testImplementation "io.qameta.allure:allure-okhttp3:$allureVersion"
+    testImplementation "io.qameta.allure.gradle.allure:allure-plugin:$allurePluginVersion"
+    testImplementation "org.testng:testng:$testNGVersion"
+    testImplementation "org.apache.logging.log4j:log4j-slf4j-impl:$logVersion"
+    testImplementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    testImplementation "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
+    testImplementation "com.github.javafaker:javafaker:$javafakerVersion"
+    testImplementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    testImplementation 'org.apache.commons:commons-text:1.9'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
+    testRuntimeOnly "org.jetbrains.kotlinx:kotlinx-serialization-core:1.2.2"
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.19'
+
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
+
+allure {
+    version = allureVersion
+    adapter {
+        frameworks {
+            testng {
+            }
+        }
+    }
+}
+
+test {
+//    systemProperties["selenide.browser"] = "helpers.factories.BrowserStackDriverProvider"
+    def suiteProperty = System.getenv("SUITE") ? System.getenv("SUITE") : "build"
+    def suite = "src/test/resources/suites/${suiteProperty}.xml"
+    ignoreFailures = false
+    useTestNG {
+        suites suite
+    }
+}
+

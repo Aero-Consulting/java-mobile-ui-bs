@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UI mobile" configfailurepolicy="continue" thread-count="1">
+    <test name="UI mobile">
+        <classes>
+            <!--            <class name="tests.product.ProductCardTest"></class>-->
+            <class name="tests.authorization.AuthorizationTest"></class>
+            <!--            <class name="tests.search.SearchTest"></class>-->
+        </classes>
+    </test>
+</suite>

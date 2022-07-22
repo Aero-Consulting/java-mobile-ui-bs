@@ -1,0 +1,57 @@
+{
+  "api": "https://test.ru/api/v1/",
+  "hub": "local",
+  "device": "s10e",
+  "hubs": {
+    "local": {
+      "url": "http://127.0.0.1:4723/wd/hub",
+      "devices": {
+        "s10e": {
+          "driver": "Android",
+          "capabilities": {
+            "deviceName": "Samsung Galaxy S10e",
+            "platformName": "android",
+            "platformVersion": "9.0"
+          }
+        }
+      }
+    },
+    "browserstack": {
+      "url": "https://hub-cloud.browserstack.com/wd/hub",
+      "devices": {
+        "Samsung Galaxy S8": {
+          "driver": "Android",
+          "capabilities": {
+            "platformName": "android",
+            "platformVersion": "7.0",
+            "deviceName": "Samsung Galaxy S8"
+          }
+        },
+        "s10e": {
+          "driver": "Android",
+          "capabilities": {
+            "platformName": "android",
+            "platformVersion": "9.0",
+            "deviceName": "Samsung Galaxy S10e"
+          }
+        },
+        "iPhone 14 Pro": {
+          "driver": "iOS",
+          "capabilities": {
+            "platformName": "ios",
+            "platformVersion": "16",
+            "deviceName": "iPhone 14 Pro"
+          }
+        },
+        "iPhone 11": {
+          "driver": "iOS",
+          "capabilities": {
+            "platformName": "ios",
+            "platformVersion": "15",
+            "deviceName": "iPhone 11"
+          }
+        }
+      }
+    }
+  }
+}
