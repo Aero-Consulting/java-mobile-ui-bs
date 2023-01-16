@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Mon Jan 16 10:07:28 GMT 2023","Mon Jan 16 10:07:28 GMT 2023","4","UI mobile","UI mobile","tests.authorization.AuthorizationTest","tests.authorization.AuthorizationTest","openApp","Запустить приложение",""
