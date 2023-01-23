@@ -5,9 +5,6 @@
         <listener class-name="helpers.browserstack.BrowserstackListener"></listener>
     </listeners>
     <test name="UI mobile" parallel="methods" thread-count="2">
-        <!--        <packages>-->
-        <!--            <package name="tests"/>-->
-        <!--        </packages>-->
         <classes>
             <class name="tests.authorization.AuthorizationTest"></class>
         </classes>

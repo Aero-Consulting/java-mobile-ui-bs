@@ -13,7 +13,6 @@ import org.testng.annotations.BeforeMethod;
 
 
 public class BaseTest {
-
     TestConfiguration configuration = TestConfiguration.getInstance();
 
     public static <T> T skipIfException(Callable<T> callable) {
@@ -32,13 +31,13 @@ public class BaseTest {
         }
     }
 
-    @BeforeMethod(description = "Запустить приложение")
+    @BeforeMethod(description = "Run application")
     public void openApp(Method test) {
         WebDriver driver = createDriver(test.getName());
         WebDriverRunner.setWebDriver(driver);
     }
 
-    @AfterMethod(description = "Закрыть приложение")
+    @AfterMethod(description = "Close application")
     public void closeApp() {
         if (WebDriverRunner.hasWebDriverStarted()) {
             WebDriverRunner.closeWebDriver();

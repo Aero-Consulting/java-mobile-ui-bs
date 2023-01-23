@@ -16,25 +16,25 @@ public class RegistrationPage {
     protected final SelenideElement passwordField = $x("//*[contains(@text,'Your password')]/../..");
     protected final SelenideElement createAccount = $x("//android.widget.ScrollView/android.view.View/android.widget.Button");
 
-    @Step("Экран регистрации открыт")
+    @Step("Registration screen should be opened")
     public RegistrationPage shouldBeOpen() {
         emailField.shouldBe(visible);
         return this;
     }
 
-    @Step("Ввести значение {text} в поле email")
+    @Step("Enter value {text} to the 'email' field")
     public RegistrationPage setEmailField(String text) {
         emailField.shouldBe(visible).sendKeys(text);
         return this;
     }
 
-    @Step("Ввести значение {text} в поле пароль")
+    @Step("Enter value {text} to the 'password' field")
     public RegistrationPage setPasswordField(String text) {
         passwordField.shouldBe(visible).sendKeys(text);
         return this;
     }
 
-    @Step("Кнопка 'Создать аккаунт' активна")
+    @Step("'Create Account' button should be active")
     public RegistrationPage createAccountEnabled() {
         createAccount.shouldBe(visible, enabled);
         return this;

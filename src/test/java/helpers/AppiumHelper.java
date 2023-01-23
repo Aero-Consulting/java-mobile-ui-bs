@@ -14,7 +14,6 @@ import io.appium.java_client.remote.SupportsContextSwitching;
 
 public class AppiumHelper {
 
-
     public static AndroidDriver getAndroidDriver() {
         return (AndroidDriver) WebDriverRunner.getWebDriver();
     }
@@ -33,28 +32,6 @@ public class AppiumHelper {
 
     public static boolean isKeyboardShown() {
         return ((HasOnScreenKeyboard) getDriver()).isKeyboardShown();
-    }
-
-    public static void waitKeyboardShown() {
-        Wait().until(keyboardIsShown());
-    }
-
-    public static void hideKeyboard(String keyName) {
-        ((HidesKeyboardWithKeyName) getDriver()).hideKeyboard(keyName);
-    }
-
-    public static void hideKeyboard() {
-        runNative(() -> {
-            ((HidesKeyboardWithKeyName) getDriver()).hideKeyboard();
-        });
-    }
-
-    public static void runNative(Runnable runnable) {
-        SupportsContextSwitching switching = ((SupportsContextSwitching) getDriver());
-        String context = switching.getContext();
-        switching.context("NATIVE_APP");
-        runnable.run();
-        switching.context(context);
     }
 
 }
