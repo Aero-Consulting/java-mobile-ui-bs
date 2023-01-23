@@ -69,7 +69,6 @@ allure {
 }
 
 test {
-//    systemProperties["selenide.browser"] = "helpers.factories.BrowserStackDriverProvider"
     def suiteProperty = System.getenv("SUITE") ? System.getenv("SUITE") : "build"
     def suite = "src/test/resources/suites/${suiteProperty}.xml"
     ignoreFailures = false
