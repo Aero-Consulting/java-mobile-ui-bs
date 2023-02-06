@@ -10,7 +10,7 @@ public class StartPageIOS extends StartPage {
     @Override
     @Step("Экран 'Корзина' открыт")
     public StartPage shouldBeOpen() {
-        welcomeButtons.shouldBe(visible);
+        moreOptions.shouldBe(visible);
         return this;
     }
 
