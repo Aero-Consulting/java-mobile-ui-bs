@@ -9,9 +9,9 @@
         "s10e": {
           "driver": "Android",
           "capabilities": {
-            "deviceName": "Samsung Galaxy S10e",
-            "platformName": "android",
-            "platformVersion": "9.0"
+            "deviceName": "Pixel API 30",
+            "platformName": "Android",
+            "platformVersion": "11.0"
           }
         }
       }

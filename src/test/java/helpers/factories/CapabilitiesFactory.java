@@ -33,6 +33,8 @@ public class CapabilitiesFactory {
             capabilities.setCapability("bstack:options", browserstackOptions);
         }
 
+        capabilities.setCapability("appPackage", "com.todoist");
+        capabilities.setCapability("appActivity", "com.todoist.alias.HomeActivityDefault");
         capabilities.setCapability("app", app);
         capabilities.setCapability("autoGrantPermissions", true);
         capabilities.setCapability("autoDismissAlerts", true);
